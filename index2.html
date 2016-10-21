@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Node Stuff</title>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
+      body { font: 20px Helvetica, Arial; }
       form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
@@ -14,15 +16,14 @@
     </style>
   </head>
   <body>
+    <h1>CSGO Node Health</h1>
     <div id="output">
 
     </div>
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
       socket.on('chat message', function(msg){
-        $('#output').html('<p>' + msg + '</p>');
+        $('#output').html('<h2>' + msg + '</h2>');
       });
     </script>
   </body>

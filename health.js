@@ -22,6 +22,7 @@ var host = 'mc.easymodegaming.com';
 
 var body = '';
 var response = '';
+var jsonData = '';
 
 data.use(function(req,res){
   if (req.method == 'POST') {
@@ -32,9 +33,22 @@ data.use(function(req,res){
           body += data;
           response = data;
           io.emit('chat message', String(response));
+          try {
+            jsonData = JSON.parse(data);
+            console.log("Name: "+ jsonData.player.name +  ", Health: " + jsonData.player.state.health);
+            io.emit('chat message',
+            "Name: "+ jsonData.player.name +  ", Health: " + jsonData.player.state.health);
+
+          }
+          catch(err){
+            console.log("Json Parse Error");
+            io.emit('chat message', "No Data");
+          }
+
+
       });
       req.on('end', function () {
-          console.log("POST payload: " + body);
+          //console.log("POST payload: " + body);
         res.end( '' );
       });
   }
