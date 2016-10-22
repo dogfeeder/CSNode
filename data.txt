@@ -1,0 +1,78 @@
+Handling POST request...
+Name: Kam, Health: 100
+POST payload: {
+        "map": {
+                "mode": "casual",
+                "name": "de_dust2",
+                "phase": "live",
+                "round": 2,
+                "team_ct": {
+                        "score": 1
+                },
+                "team_t": {
+                        "score": 1
+                }
+        },
+        "round": {
+                "phase": "live"
+        },
+        "player": {
+                "steamid": "76561198003441877",
+                "name": "Kam",
+                "team": "T",
+                "activity": "playing",
+                "weapons": {
+                        "weapon_0": {
+                                "name": "weapon_knife_t",
+                                "paintkit": "default",
+                                "type": "Knife",
+                                "state": "holstered"
+                        },
+                        "weapon_1": {
+                                "name": "weapon_galilar",
+                                "paintkit": "cu_cerbrus_galil",
+                                "type": "Rifle",
+                                "ammo_clip": 35,
+                                "ammo_clip_max": 35,
+                                "ammo_reserve": 90,
+                                "state": "active"
+                        },
+                        "weapon_2": {
+                                "name": "weapon_c4",
+                                "paintkit": "default",
+                                "type": "C4",
+                                "state": "holstered"
+                        },
+                        "weapon_3": {
+                                "name": "weapon_glock",
+                                "paintkit": "cu_glock-liquescent",
+                                "type": "Pistol",
+                                "ammo_clip": 20,
+                                "ammo_clip_max": 20,
+                                "ammo_reserve": 120,
+                                "state": "holstered"
+                        }
+                },
+                "match_stats": {
+                        "kills": -1,
+                        "assists": 0,
+                        "deaths": 1,
+                        "mvps": 1,
+                        "score": 2
+                },
+                "state": {
+                        "health": 100,
+                        "armor": 100,
+                        "helmet": true,
+                        "flashed": 0,
+                        "smoked": 0,
+                        "burning": 0,
+                        "money": 600,
+                        "round_kills": 0,
+                        "round_killhs": 0
+                }
+        },
+        "auth": {
+                "token": "CSGO Node"
+        }
+}

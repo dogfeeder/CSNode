@@ -32,16 +32,33 @@ data.use(function(req,res){
       req.on('data', function (data) {
           body += data;
           response = data;
-          io.emit('chat message', String(response));
           try {
             jsonData = JSON.parse(data);
+
             console.log("Name: "+ jsonData.player.name +  ", Health: " + jsonData.player.state.health);
+
             io.emit('chat message',
-            "Name: "+ jsonData.player.name +  ", Health: " + jsonData.player.state.health);
+            "<h2>Game Info</h2>"
+            + "<p><b>Map:</b> "+ jsonData.map.name
+            + "<p><b>Mode:</b> "+ jsonData.map.mode
+            + "<p><b>Score:</b> CT "+ jsonData.map.team_ct.score + "-" + jsonData.map.team_t.score+ " T"
+            + "<h2>Player Info</h2>"
+            + "<p><b>Name:</b> "+ jsonData.player.name
+            + "<br><b>Health:</b> " + jsonData.player.state.health
+            + "<br><b>Armor:</b> " + jsonData.player.state.armor
+            + "<br><b>Money:</b> " + jsonData.player.state.money
+            + "<br><b>Kills:</b> " + jsonData.player.match_stats.kills
+            + "<br><b>Assists:</b> " + jsonData.player.match_stats.assists
+            + "<br><b>Deaths:</b> " + jsonData.player.match_stats.deaths
+
+            + "</p>"
+          );
+
+          io.emit('health', jsonData.player.state.health);
 
           }
           catch(err){
-            console.log("Json Parse Error");
+            console.log("Json Parse Error" + data);
             io.emit('chat message', "No Data");
           }
 
