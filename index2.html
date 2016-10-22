@@ -15,6 +15,10 @@
         width: 50%;
         padding: 10px;
       }
+      .invisible {
+        display: none;
+        visibility: hidden;
+      }
     </style>
   </head>
   <body>
@@ -22,10 +26,45 @@
     <div id="output" class="center">
 
     </div>
+    <div id="healthscript" class="invisible">
+    </div>
     <script>
       var socket = io();
       socket.on('chat message', function(msg){
         $('#output').html(msg);
+      });
+      socket.on('health', function(msg){
+        $('#healthscript').html(msg);
+      });
+
+      $('#healthscript').bind("DOMSubtreeModified",function(){
+        var int = parseInt($(this).html());
+        console.log(int);
+        if (!isNaN(int)) {
+          if (int == 100) {
+            $('html').css({'background' : '#20FE30'});
+          } else if(int > 90) {
+            $('html').css({'background' : '#3BFE1D'});
+          } else if(int > 80) {
+            $('html').css({'background' : '#68FE1B'});
+          } else if(int > 70) {
+            $('html').css({'background' : '#97FE19'});
+          } else if(int > 60) {
+            $('html').css({'background' : '#C6FE17'});
+          } else if(int > 50) {
+            $('html').css({'background' : '#F6FE15'});
+          } else if(int > 40) {
+            $('html').css({'background' : '#FED412'});
+          } else if(int > 30) {
+            $('html').css({'background' : '#FEA210'});
+          } else if(int > 20) {
+            $('html').css({'background' : '#FE6F0E'});
+          } else if(int > 10) {
+            $('html').css({'background' : '#FE3B0C'});
+          } else {
+            $('html').css({'background' : '#FF090C'});
+          }
+        }
       });
     </script>
   </body>
