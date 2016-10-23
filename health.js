@@ -50,7 +50,6 @@ data.use(function(req,res){
             + "<br><b>Kills:</b> " + jsonData.player.match_stats.kills
             + "<br><b>Assists:</b> " + jsonData.player.match_stats.assists
             + "<br><b>Deaths:</b> " + jsonData.player.match_stats.deaths
-
             + "</p>"
           );
 

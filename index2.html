@@ -39,7 +39,6 @@
 
       $('#healthscript').bind("DOMSubtreeModified",function(){
         var int = parseInt($(this).html());
-        console.log(int);
         if (!isNaN(int)) {
           if (int == 100) {
             $('html').css({'background' : '#20FE30'});
