@@ -78,7 +78,7 @@ data.use(function(req,res){
 });
 
 output.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/index2.html'));
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 // Set socket.io listeners.
